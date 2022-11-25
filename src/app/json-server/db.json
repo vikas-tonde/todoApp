@@ -1,0 +1,24 @@
+{
+  "todolist": [
+    {
+      "id": 1,
+      "task": "JAVA",
+      "status": true
+    },
+    {
+      "id": 2,
+      "task": "html",
+      "status": true
+    },
+    {
+      "id": 3,
+      "task": "CSS",
+      "status": false
+    },
+    {
+      "id": 1669188360232,
+      "task": "Remember 23rd Nov 2022",
+      "status": false
+    }
+  ]
+}

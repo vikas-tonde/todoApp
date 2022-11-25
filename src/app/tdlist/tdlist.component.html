@@ -1,0 +1,23 @@
+<div *ngIf="todos.length==0" class="alert alert-dismissible alert-warning">
+    <p class="mb-0">No todos added yet</p>
+</div>
+<div class="form-group d-flex justify-content-center align items-center mt-5 mb-2">
+    <input class="form-control form-control-sm h-25 w-50 my-1" type="text" placeholder="Enter todo" id="inputSmall"
+        [(ngModel)]="task" />
+    <button *ngIf="!showUpdateButtond" type="button" [disabled]="task ==''"
+        class="btn btn-outline-secondary col-md-1 mx-1 h-25" (click)="addTodo()"><i class="fas fa-plus"></i></button>
+    <button *ngIf="showUpdateButtond" type="button" [disabled]="task ==''"
+        class="btn btn-outline-info col-md-1 mx-1 h-25" (click)="updateTodo()"><i class="fas fa-save"></i></button>
+</div>
+<div class="list-group" *ngIf="todos.length>0">
+    Your Todos are
+    <div href="#" class="list-group-item py-2 my-1 clearfix" *ngFor="let t of todos; index as i">{{t.task}}
+        <span *ngIf="t.status" class="badge bg-success"><i class="fa fa-check"></i></span>
+        <button type="button" class="btn btn-outline-danger float-end mx-1" (click)="deleteTodo(t._id)"><i
+                class="fas fa-trash-alt" title="Delete"></i></button>
+        <button type="button" class="btn btn-outline-success float-end mx-1" (click)="editTodo(t._id,t)"><i class="fas fa-pen"
+                title="edit"></i></button>
+        <button *ngIf="!t.status" type="button" class="btn btn-outline-warning float-end mx-1"
+            (click)="markAsCompleted(t._id,t)" title="Mark as done"><i class="fas fa-check-double"></i></button>
+    </div>
+</div>
